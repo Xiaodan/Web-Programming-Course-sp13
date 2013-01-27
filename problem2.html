@@ -1,0 +1,243 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"> <head>
+  <title>An important document</title>
+</head>
+<body>
+  <!-- add your table of contents here -->
+  <a name="top"></a>
+<ul>
+  <li><a href="#Abstract">Abstract<br></a></li>
+  <li><a href="#Introduction">Introduction<br></a></li>
+  <li><a href="#Challenges">Challenges<br></a></li>
+  <li><a href="#A security framework for robot apps">A security framework for robot apps<br></a></li>
+  <li><a href="#Additional related work">Additional related work<br></a></li>
+  <li><a href="#Conclusions">Conclusions</a></li>
+</ul>
+  <!-- 
+  <p>
+    <i>Your job is to add a table of contents to the top of this
+    document.  There are sections and subsections, so make sure that
+    the difference between the two is reflected somehow in your table
+    of contents</i>
+
+  </p>
+  
+  <p>
+    <i>Your table of contents should contain links to each of the
+    sections and subsections in this document, clicking on these links
+    should navigate the page to that particular section.  At each
+    section and subsection, there should be a link marked &#34;top&#34; that
+    enables the user to get back to the top of the document.</i>
+  </p> -->
+
+  <a name = "Abstract"></a>
+  <h1>Abstract</h1><a href="#top">Back to top</a>
+
+<p>
+  This position paper recognizes that general purpose robots will
+  become increasingly common and argues that we need to prepare
+  ourselves to deal with security for robot applications in an
+  intelligent way. We discuss ways that robots are similar to
+  traditional computing devices and ways that robots are different,
+  and we describe the challenges that arise. We propose a framework
+  for providing security for robot applications and we discuss three
+  potential robot applications: a &#34;fetch coffee&#34; app, a &#34;pretend to be
+  a Labrador&#34; app, and a &#34;is my advisor in his office and available&#34;
+  app. We discuss some of the security needs of these applications and
+  propose a few potential ways to address those security needs.
+</p>
+  
+  <a name = "Introduction"></a>
+  <h1>Introduction</h1><a href="#top">Back to top</a>
+
+<p>
+  Robots are being used for an increasingly wide range of
+  applications. Much of the pioneering work on robotics focused on
+  building industrial robots where robots helped automate portions of
+  the manufacturing process. More recently, robots have seen
+  increasing use for military applications<sup>[13]</sup>, cleaning floors<sup>[8]</sup>,
+  mowing lawns<sup>[12]</sup>, driving cars<sup>[17]</sup>, and to help with rehabilitation by acting as realistic pets<sup>[11]</sup>.
+</p>
+
+<p>
+  It is our position that robots should be viewed as general purpose
+  computing devices and should be capable of running robot apps. By
+  robot apps we do not mean Emacs and gcc, but rather robots should
+  support a secure and general purpose programming environment for
+  controlling the robot itself. In our vision we hope to make robots
+  as easy to program as mobile phones, support multiple robot apps
+  at the same time, and provide this functionality with appropriate
+  security mechanisms in place from the beginning. Although many of
+  the same security techniques we use on more traditional computing
+  environments will certainly apply to robots as well (e.g.,
+  software least privilege and modularity), robots are fundamentally
+  different than traditional computer systems in interesting and novel
+  ways.
+</p>
+
+<p>
+  We argue that robot policies and interfaces are best described in
+  terms of higher-level abstractions, and that the application
+  framework should embrace these abstractions and deal with them as
+  first-order concepts.
+</p>
+
+<p>
+  In this paper we discuss ways that robots are different than
+  traditional computer systems and the security challenges that
+  arise from these differences, and we posit a few directions that
+  this new research area might take.
+</p>
+
+  <a name = "Challenges"></a>
+  <h1>Challenges</h1><a href="#top">Back to top</a>
+
+<p>
+  Robotic platforms are built on top of traditional computing systems,
+  and thus are vulnerable to the same security issues that they are
+  <sup>[3]</sup>. However, robotics provide a fundamentally different platform
+  than traditional computer systems that brings with it an entirely
+  new set of security issues.
+</p>
+
+<p>
+  In this section we discuss ways that robots are similar to traditional
+  computing platforms, and ways that robots are different than
+  traditional computing platforms and the challenges that arise from
+  these differences.
+</p>
+
+  <h2>Similarities</h2>
+
+<p>
+  Many robotic platforms use commodity hardware and software as
+  components. For example, our robot, Isaac (Figure 1), uses a netbook
+  running Linux as its main control unit. In order for the robot to
+  be secure, it is necessary that that machine be secure as
+  well. Compromising a robot&#39;s operating system via a kernel-level
+  remote code execution exploit would render the robot entirely compromised as well. One of our main sensors is a Kinect that provides
+  video and depth information and uses device drivers to enable
+  software to interact with the sensor data. Robotic systems also
+  contains components outside of the robot itself: a remote server for
+  storing logs or performing computationally expensive calculations,
+  or for providing commands to the robot. These components communicate
+  with each other via traditional networks, such as WiFi. These remote
+  systems and networks need to be accounted for when building secure
+  robot applications.
+</p>
+
+  <h2>Differences</h2>
+
+<p>
+  Robots differ from traditional computer systems in two key
+  ways. First, robots can move autonomously and they have manipulators
+  (e.g., arms) that can affect the physical world. Second, their
+  underlying algorithms are fundamentally probabilistic. These
+  differences provide a number of key challenges for designers of more
+  secure robot systems.
+</p>
+
+  <a name = "A security framework for robot apps"></a>
+  <h1>A security framework for robot apps</h1><a href="#top">Back to top</a>
+
+<p>
+  As general purpose robots become more common, we will begin to see a
+  rise in commodity software for robots. There will be apps to enable
+  your robot to interact with specific shops, perform specific chores,
+  or generate specific hilarious noises. Software developers will require robot-platform-independent frameworks to accommodate their applications. Inevitably, we will see some form of &#34;robot app store&#34;.
+</p>
+
+<p>
+  Each robot platform will be able to implement high-level
+  functionality in different ways &#45; movement can be implemented with
+  wheels, legs, treads, etc. To this end, the software will
+  communicate with the framework at a higher level than traditional
+  framework/application interfaces. Commands like &#34;Move to location
+  X&#34; instead of &#34;Draw an &#39;OK&#39; button&#34;.
+</p>
+
+<p>
+  Security, as well, will have to be implemented through higher level
+  abstractions. Instead of sockets and files and processes, we will
+  have to work with people, places, and actions. It will be important
+  to figure out the correct abstractions that enable security to be
+  defined at this level. It is important that we also respect privacy
+  and do not allow the applications access to more personal
+  information than is required.
+</p>
+
+<p>
+  In this section we discuss three aspects of our proposed framework
+  for building secure robot applications. First, we discuss the notion
+  of user identification in the context of a robot that buys coffee
+  for users. Second, we propose a robot &#34;app store&#34; and discuss ideas
+  on identifying abstractions that one could use to expose security
+  relevant information. Third, we describe notions of privacy and
+  how this can build off of the work done on distributed social
+  network privacy to help users make decisions about security and
+  privacy with robot applications.
+</p>
+
+  <a name = "Additional related work"></a>
+  <h1>Additional related work</h1><a href="#top">Back to top</a>
+
+<p>
+  In one related project, O&#39;Kane proposes privacy enhancements for
+  robots<sup>[10]</sup>. In this work, O&#39;Kane suggests approaching robot
+  privacy from a hardware perspective by crippling sensors
+  intentionally to avoid allowing the robot to learn too much about
+  the objects it is sensing. However, our position is that robots
+  should have the highest quality hardware that makes economic sense
+  for the robot and that privacy should be enforced by the more
+  flexible software layer.
+</p>
+
+<p>
+  Tomatis et al. proposed writing robot algorithms in type safe software
+  to avoid common programming pitfalls (e.g., buffer
+  overflows). However, the sheer number of libraries needed to run
+  reasonable robot applications makes this approach infeasible.
+</p>
+
+<p>
+  Several projects from the robotics area look at developing robots
+  that avoid hurting people<sup>[18, 9, 6]</sup>. Their key techniques
+  supplement the basic collision avoidance techniques used by most
+  robots to take into account soft tissue. When their algorithms
+  detect soft tissue, they prevent damaging it. This type of measure
+  is fundamental to the robot itself and does not have much to do with
+  robot apps.
+</p>
+
+<p>
+  work. Hong et al. defined a model for privacy with ubiquitous
+  systems<sup>[7]</sup>, and Beresford and Stanjano look at anonymity for
+  applications that track location<sup>[2]</sup>. Finally, recent work on
+  decentralized social networks<sup>[1]</sup> shows mechanisms we could use to
+  implement some of the social-network-based privacy mechanisms we
+  propose.
+</p>
+
+  <a name = "Conclusions"></a>
+  <h1>Conclusions</h1><a href="#top">Back to top</a>
+
+<p>
+  Given the success of &#34;app stores&#34; with smartphones, it is likely
+  that a similar platform will show up for robot applications. These
+  generally programmable robots will enable a new class of
+  applications that use robots in novel and interesting ways. However,
+  robots are fundamentally different than traditional computer
+  systems, so it will be challenging to design systems that allow
+  users to download and install relatively untrustworthy applications without compromising the user&#39;s or the robot&#39;s security and
+  privacy. We have some promising initial ideas for improving security
+  and privacy for robot apps, but this new area of security research
+  will evolve with time as people build more robots and more robot
+  apps.
+</p>
+
+</body>
+</html>

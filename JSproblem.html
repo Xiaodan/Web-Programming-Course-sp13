@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+
+var arr1 = new Array();
+var arr2 = new Array();
+var objects = {dog: "a", cat: "b", shark: "c", kangaroo: "d", turtle: "e", pig: "f", kangaroo2: "g"};
+i = 0;
+for(x in objects){
+   arr1[i] = x; // key
+   arr2[i] = objects[x]; // value
+   i += 1;
+}
+document.write(arr1 + "<br>" + arr2 + "<br>");
+arr1 = arr1.sort();
+document.write(arr1 + "<br>"); // sorted keys
+var arr3 = new Array();
+for(i = 0; i < arr1.length; i ++){
+ for(x in objects){
+    if(arr1[i] === x){
+       arr3[i] = objects[x];
+    }
+ }
+}
+for(i = 0; i < arr3.length; i ++){
+if(i === 0){
+document.write("The result array is [\""+arr3[i] + "\"");
+}
+else if(i === arr3.length-1){
+document.write(", \"" + arr3[i] + "\"].");
+
+}
+else{
+document.write(", \"" + arr3[i] + "\"");
+}
+  
+}
+
+
+</script>
+</body>
+</html>
