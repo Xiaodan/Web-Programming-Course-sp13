@@ -1,0 +1,44 @@
+body {
+  font-size: 20px;
+  line-height: 1em;
+}
+
+.outer {
+  position: relative;
+  background: white;
+  color: black;
+  /* border: 1px solid black; */
+} 
+
+
+.inner0-above, .inner0-below {
+  position: absolute;
+  background: orange;
+  top: 0px;
+  width: 100px;
+  height: 100px;
+} 
+
+.inner0-below{
+  right:0px;
+}
+
+.inner0-above {
+  left: 0px;
+}
+
+
+.inner1-above, .inner1-below {
+  background: blue;
+  padding: 10px;
+  min-height: 80px;
+}
+
+.inner1-above {
+    margin-left: 100px;
+} 
+
+.inner1-below {
+  margin-right: 100px;
+  text-align: right;
+}
