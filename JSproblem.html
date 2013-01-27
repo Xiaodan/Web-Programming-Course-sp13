@@ -5,17 +5,21 @@
 <script>
 
 var arr1 = new Array();
-var arr2 = new Array();
 var objects = {dog: "a", cat: "b", shark: "c", kangaroo: "d", turtle: "e", pig: "f", kangaroo2: "g"};
+output = "";
+for (x in objects) {
+  output += x + ": " + objects[x] + "<br>";
+}
+document.write("The object has the following key-value pairs: <br>" + output + "<br>");
+
 i = 0;
 for(x in objects){
    arr1[i] = x; // key
-   arr2[i] = objects[x]; // value
    i += 1;
 }
-document.write(arr1 + "<br>" + arr2 + "<br>");
+document.write("The array of keys is " + arr1 + "<br>");
 arr1 = arr1.sort();
-document.write(arr1 + "<br>"); // sorted keys
+document.write("The array of sorted keys is  " + arr1 + "<br>"); // sorted keys
 var arr3 = new Array();
 for(i = 0; i < arr1.length; i ++){
  for(x in objects){
