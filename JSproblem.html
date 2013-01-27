@@ -4,44 +4,48 @@
 
 <script>
 
-var arr1 = new Array();
+function sortkey(object){
+	var arr1 = new Array();
+	var objects = object;
+	output = "";
+	for (x in objects) {
+	  output += x + ": " + objects[x] + "<br>";
+	}
+	document.write("The object has the following key-value pairs: <br>" + output + "<br>");
+
+	i = 0;
+	for(x in objects){
+	   arr1[i] = x; // key
+	   i += 1;
+	}
+	document.write("The array of keys is " + arr1 + "<br>");
+	arr1 = arr1.sort();
+	document.write("The array of sorted keys is  " + arr1 + "<br>"); // sorted keys
+
+	var arr2 = new Array();
+	for(i = 0; i < arr1.length; i ++){
+	 for(x in objects){
+	    if(arr1[i] === x){
+	       arr2[i] = objects[x];
+	    }
+	 }
+	}
+        var x = "";
+	for(i = 0; i < arr2.length; i ++){
+		if(i === 0){
+			document.write("The result array is [\""+arr2[i] + "\"");
+		}
+		else if(i === arr2.length-1){
+			document.write(", \"" + arr2[i] + "\"].");
+		}
+		else{
+			document.write(", \"" + arr2[i] + "\"");
+		}	  
+	}
+}
+
 var objects = {dog: "a", cat: "b", shark: "c", kangaroo: "d", turtle: "e", pig: "f", kangaroo2: "g"};
-output = "";
-for (x in objects) {
-  output += x + ": " + objects[x] + "<br>";
-}
-document.write("The object has the following key-value pairs: <br>" + output + "<br>");
-
-i = 0;
-for(x in objects){
-   arr1[i] = x; // key
-   i += 1;
-}
-document.write("The array of keys is " + arr1 + "<br>");
-arr1 = arr1.sort();
-document.write("The array of sorted keys is  " + arr1 + "<br>"); // sorted keys
-var arr3 = new Array();
-for(i = 0; i < arr1.length; i ++){
- for(x in objects){
-    if(arr1[i] === x){
-       arr3[i] = objects[x];
-    }
- }
-}
-for(i = 0; i < arr3.length; i ++){
-if(i === 0){
-document.write("The result array is [\""+arr3[i] + "\"");
-}
-else if(i === arr3.length-1){
-document.write(", \"" + arr3[i] + "\"].");
-
-}
-else{
-document.write(", \"" + arr3[i] + "\"");
-}
-  
-}
-
+sortkey(objects);
 
 </script>
 </body>
